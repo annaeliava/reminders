@@ -51,11 +51,20 @@ const Modal = (props) => {
     const handleSaveReminder = (e) => {
         // текущий список
         const current = lists[currentList];
+        // когда создан 
+        const date = new Date();
 
         if (isNew) {
             // новый id для задачи
             const id = `${currentList}-${Date.now()}`;
-            current.push({ task: task, description: description, deadline: deadline, isCompleted: false, id: id });
+            current.push({
+                task: task,
+                description: description,
+                deadline: deadline,
+                date: date,
+                isCompleted: false,
+                id: id
+            });
             setLists({
                 ...lists,
                 [currentList]: current
@@ -65,17 +74,45 @@ const Modal = (props) => {
                 const currentID = a.id;
                 if (currentID === currentTask) {
                     if (task.length > 0 && description.length > 0 && deadline.length > 0) {
-                        return { ...a, task: task, description: description, deadline: deadline };
+                        return {
+                            ...a,
+                            task: task,
+                            description: description,
+                            deadline: deadline,
+                            date: date
+                        };
                     } else if (task.length > 0 && description.length > 0) {
-                        return { ...a, task: task, description: description };
+                        return {
+                            ...a,
+                            task: task,
+                            description: description,
+                            date: date
+                        };
                     } else if (deadline.length > 0 && description.length > 0) {
-                        return { ...a, description: description, deadline: deadline };
+                        return {
+                            ...a,
+                            description: description,
+                            deadline: deadline,
+                            date: date
+                        };
                     } else if (task.length > 0) {
-                        return { ...a, task: task };
+                        return {
+                            ...a,
+                            task: task,
+                            date: date
+                        };
                     } else if (description.length > 0) {
-                        return { ...a, description: description };
+                        return {
+                            ...a,
+                            description: description,
+                            date: date
+                        };
                     } else {
-                        return { ...a, deadline: deadline };
+                        return {
+                            ...a,
+                            deadline: deadline,
+                            date: date
+                        };
                     }
                 } else {
                     return a;

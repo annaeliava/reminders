@@ -35,7 +35,7 @@ const Title = (props) => {
                                     lists,
                                     setLists,
                                     currentList,
-                                    setIsModal
+                                    setIsMenu
                                 }}
                             />
                         </div>

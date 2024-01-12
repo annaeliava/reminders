@@ -3,7 +3,7 @@ import styles from './Menu.module.css'
 import MenuItem from "./MenuItem /MenuItem";
 
 const Menu = (props) => {
-    const { lists, setLists, currentList, setIsModal } = props;
+    const { lists, setLists, currentList, setIsMenu } = props;
     // список открыт ил нет
     const [isClicked, setIsClicked] = useState(false);
     // удалить список
@@ -19,12 +19,44 @@ const Menu = (props) => {
         setIsClicked(!isClicked);
     }
 
+    const compareDeadline = (a, b) => {
+        if (a.deadline < b.deadline) {
+            return -1;
+        }
+        if (a.deadline > b.deadline) {
+            return 1;
+        }
+        return 0;
+    }
+
+    const compareCreateDate = (a, b) => {
+        if (a.date < b.date) {
+            return -1;
+        }
+        if (a.date > b.date) {
+            return 1;
+        }
+        return 0;
+    }
+
     const handleSortingCreatedDate = () => {
-        setIsModal(false);
+        const tasks = lists[currentList];
+        const sortedData = tasks.sort(compareCreateDate);
+        setLists({
+            ...lists,
+            [currentList]: sortedData
+        });
+        setIsMenu(false);
     }
 
     const handleSortingDeadline = () => {
-        setIsModal(false);
+        const tasks = lists[currentList];
+        const sortedData = tasks.sort(compareDeadline);
+        setLists({
+            ...lists,
+            [currentList]: sortedData
+        });
+        setIsMenu(false);
     }
 
     const MenuArr = [
