@@ -1,0 +1,37 @@
+.btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn__less {
+    width: 3.125rem;
+    height: 3.125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__wider {
+    width: 100%;
+    height: auto;
+    padding-left: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 19px;
+}
+
+.img {
+    width: 3.125rem;
+    height: 3.125rem;
+}
+
+.txt {
+    inline-size: 100px;
+    height: fit-content;
+    overflow-wrap: break-word;
+    font-size: 20px;
+    font-weight: 600;
+    color: #8AAAE5;
+}
