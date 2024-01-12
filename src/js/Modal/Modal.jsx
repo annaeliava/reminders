@@ -12,7 +12,7 @@ const EditText = [
 ];
 
 const EditDescription = [
-    { name: 'newDescription, id: newdescription-0', type: 'text', label: 'описание:' }
+    { name: 'newDescription', id: 'newdescription-0', type: 'text', label: 'описание:' }
 ];
 
 const Modal = (props) => {
